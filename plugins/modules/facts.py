@@ -437,7 +437,7 @@ class Interfaces(FactsBase):
             interfaces[interface_canonical_name(i[0])] = interface
         return interfaces
 
-    def _populate_interfaces_status_portchanel(self, interface_table):
+    def _populate_interfaces_status_portchannel(self, interface_table):
         interfaces = dict()
 
         for key in interface_table:
@@ -470,13 +470,13 @@ class Interfaces(FactsBase):
         tables = ciscosmb_split_to_tables(data)
 
         interface_table = ciscosmb_parse_table(tables[0])
-        portchanel_table = ciscosmb_parse_table(tables[1])
+        portchannel_table = ciscosmb_parse_table(tables[1])
 
         interfaces = self._populate_interfaces_status_interface(interface_table)
         self.facts["interfaces"] = ciscosmb_merge_dicts(
             self.facts["interfaces"], interfaces
         )
-        interfaces = self._populate_interfaces_status_portchanel(portchanel_table)
+        interfaces = self._populate_interfaces_status_portchannel(portchannel_table)
         self.facts["interfaces"] = ciscosmb_merge_dicts(
             self.facts["interfaces"], interfaces
         )
@@ -494,7 +494,7 @@ class Interfaces(FactsBase):
             interfaces[interface_canonical_name(i[0])] = interface
         return interfaces
 
-    def _populate_interfaces_configuration_portchanel(self, interface_table):
+    def _populate_interfaces_configuration_portchannel(self, interface_table):
         interfaces = dict()
 
         for key in interface_table:
@@ -512,14 +512,14 @@ class Interfaces(FactsBase):
         tables = ciscosmb_split_to_tables(data)
 
         interface_table = ciscosmb_parse_table(tables[0])
-        portchanel_table = ciscosmb_parse_table(tables[1])
+        portchannel_table = ciscosmb_parse_table(tables[1])
 
         interfaces = self._populate_interfaces_configuration_interface(interface_table)
         self.facts["interfaces"] = ciscosmb_merge_dicts(
             self.facts["interfaces"], interfaces
         )
-        interfaces = self._populate_interfaces_configuration_portchanel(
-            portchanel_table
+        interfaces = self._populate_interfaces_configuration_portchannel(
+            portchannel_table
         )
         self.facts["interfaces"] = ciscosmb_merge_dicts(
             self.facts["interfaces"], interfaces
@@ -540,7 +540,7 @@ class Interfaces(FactsBase):
             interfaces[interface_canonical_name(i[0])] = interface
         return interfaces
 
-    def _populate_interfaces_description_portchanel(self, interface_table):
+    def _populate_interfaces_description_portchannel(self, interface_table):
         interfaces = dict()
 
         for key in interface_table:
@@ -561,13 +561,13 @@ class Interfaces(FactsBase):
         tables = ciscosmb_split_to_tables(data)
 
         interface_table = ciscosmb_parse_table(tables[0], False)
-        portchanel_table = ciscosmb_parse_table(tables[1], False)
+        portchannel_table = ciscosmb_parse_table(tables[1], False)
 
         interfaces = self._populate_interfaces_description_interface(interface_table)
         self.facts["interfaces"] = ciscosmb_merge_dicts(
             self.facts["interfaces"], interfaces
         )
-        interfaces = self._populate_interfaces_description_portchanel(portchanel_table)
+        interfaces = self._populate_interfaces_description_portchannel(portchannel_table)
         self.facts["interfaces"] = ciscosmb_merge_dicts(
             self.facts["interfaces"], interfaces
         )
